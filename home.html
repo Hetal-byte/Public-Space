@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Social Wall - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="home-page"> <!-- Added home-page class for script.js to identify -->
+    <div class="container">
+        <header class="app-header">
+            <h1><i class="fas fa-users"></i> Community Social Wall</h1>
+            <div class="user-info">
+                <div id="profile-circle" class="profile-clickable">
+                    <i class="fas fa-user"></i>
+                    <div class="profile-popup" id="profile-popup">
+                        <div class="profile-header">
+                            <div class="profile-pic-large"><i class="fas fa-user"></i></div>
+                            <h3 id="profile-name">My Profile</h3>
+                            <div class="profile-stats">
+                                <span><i class="fas fa-users"></i> <span id="profile-friend-count">0</span> friends</span>
+                                <span><i class="fas fa-pencil-alt"></i> <span id="profile-post-count">0</span> posts</span>
+                            </div>
+                        </div>
+                        <div class="profile-tabs">
+                            <button class="tab-button active" data-tab="posts">
+                                <i class="fas fa-newspaper"></i> Posts
+                            </button>
+                            <button class="tab-button" data-tab="friends">
+                                <i class="fas fa-user-friends"></i> Friends
+                            </button>
+                            <button class="tab-button" data-tab="photos">
+                                <i class="fas fa-images"></i> Photos
+                            </button>
+                        </div>
+                        <div class="profile-posts" id="my-posts">
+                            <div class="no-posts-message">
+                                <i class="fas fa-camera"></i>
+                                <p>You haven't posted anything yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span id="friend-count">0 friends</span>
+                <button id="add-friends-btn">
+                    <i class="fas fa-user-plus"></i> Friends
+                    <span class="notification-badge" id="friend-request-badge" style="display:none;"></span>
+                </button>
+                <div class="friends-popup" id="friends-popup" style="display:none;">
+                    <div class="friends-popup-header">
+                        <h3>Friends</h3>
+                        <button id="close-friends-btn" class="close-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="friends-search">
+                        <input type="text" placeholder="Search friends..." id="friend-search">
+                        <button id="search-friends-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="friends-list" id="friends-list">
+                        <div class="section-title">People You May Know</div>
+                        <div class="friend-suggestions" id="friend-suggestions"></div>
+                    </div>
+                    <div class="current-friends" id="current-friends">
+                        <div class="section-title">Your Friends</div>
+                        <div class="friends-grid" id="friends-grid">
+                            <div class="no-friends-message" id="no-friends-message">
+                                <i class="fas fa-user-friends"></i>
+                                <p>You haven't added any friends yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="post-controls">
+            <div class="no-friends-alert" id="no-friends-alert" style="display:none;">
+                <i class="fas fa-user-friends"></i>
+                <p>Add friends to start posting</p>
+            </div>
+            <div class="daily-limit-alert" id="daily-limit-alert" style="display:none;">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>You have reached your daily post limit.</p>
+            </div>
+            <div class="upload-container" id="upload-container" style="display:none;">
+                <input type="file" id="media-upload" accept="image/*,video/*" style="display:none;">
+                <div class="media-preview" id="media-preview" style="display:none;"></div>
+                <button id="upload-btn"><i class="fas fa-camera"></i> Upload Media</button>
+                <textarea id="post-content" placeholder="What's on your mind?" rows="4" disabled></textarea>
+                <button id="post-btn" disabled>Post <i class="fas fa-paper-plane"></i></button>
+                <div id="post-limit-info" class="post-limit-info"></div>
+            </div>
+        </div>
+
+        <div class="feed">
+            <!-- Posts will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
