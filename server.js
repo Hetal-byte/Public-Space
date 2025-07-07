@@ -3,7 +3,6 @@ const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
 const app = express();
-const PORT = 3000;
 
 app.use(cors()); // Enable CORS for all origins
 app.use(express.json()); // For parsing application/json
@@ -17,10 +16,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // In-memory data stores (for demonstration purposes - data will reset on server restart)
 // In a real app, you'd use a database (MongoDB, PostgreSQL, etc.)
 const users = {}; // { username: { password, friends: Set, posts: [] } }
-const port = parseInt(process.env.PORT, 10) || 3000;
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Listening on http://0.0.0.0:${port}`);
-});
+const port = [];
 // { id, username, fileUrl, type, comment, likes: Set, comments: [{user, text}], createdAt }
 
 // Multer setup for file uploads
@@ -223,9 +219,9 @@ app.delete('/api/post/:id', (req, res) => {
 });
 
 
-// Start the server
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
   console.log(`Serving static files from: ${__dirname}`);
   console.log(`Uploads directory: ${path.join(__dirname, 'uploads')}`);
 });
