@@ -7,7 +7,7 @@ let currentUser = {
 };
 
 // Base URL for your API
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'https://public-space-1-wqg6.onrender.com/api';
 
 // DOM Elements (check if they exist before using, as some are page-specific)
 const splashScreen = document.getElementById('splash-screen');
@@ -310,7 +310,7 @@ function setupEventListeners() {
     if (profileCircle) {
         profileCircle.addEventListener('click', function() {
             const profilePopup = document.getElementById('profile-popup');
-            if (profilePopup) {
+            if (profilePopup) { 
                 profilePopup.style.display = profilePopup.style.display === 'block' ? 'none' : 'block';
             }
         });

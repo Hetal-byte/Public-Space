@@ -16,7 +16,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // In-memory data stores (for demonstration purposes - data will reset on server restart)
 // In a real app, you'd use a database (MongoDB, PostgreSQL, etc.)
 const users = {}; // { username: { password, friends: Set, posts: [] } }
-const port = [];
+const posts = [];
 // { id, username, fileUrl, type, comment, likes: Set, comments: [{user, text}], createdAt }
 
 // Multer setup for file uploads
